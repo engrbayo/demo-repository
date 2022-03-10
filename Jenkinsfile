@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build with Maven') {
             steps {
-                echo 'cd MyWebApp && mvn clean install'
+                echo 'cd SampleWebApp && mvn clean install'
             }
         }
         stage('Third stage') {
