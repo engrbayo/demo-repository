@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Third stage') {
             steps {
-                deploy adapters: [tomcat9(credentialsId: 'sonar-file', path: '', url: 'http://54.158.77.85:8080/')], contextPath: 'myapp', war: '**/*.war'
+                deploy adapters: [tomcat9(credentialsId: 'sonar-file', path: '', url: 'http://3.89.187.211:8080/')], contextPath: 'myapp', war: '**/*.war'
             }
         }
     }
