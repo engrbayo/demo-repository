@@ -13,10 +13,16 @@ pipeline {
                 sh 'cd SampleWebApp && mvn clean install'
             }
         }
+        
+             stage('Test') {
+            steps {
+                sh 'cd SampleWebApp && mvn test'
+            }
+        }
         stage('scan with sonar') {
             steps {
                 withSonarQubeEnv('sonar') {
-                sh "mnv -f SampleWebApp/pom.xml sonar:sonar"
+                sh "mvn -f SampleWebApp/pom.xml sonar:sonar"
         }
             }
                  }
