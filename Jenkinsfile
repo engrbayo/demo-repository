@@ -9,9 +9,10 @@ pipeline {
         }
         stage('scan with sonar') {
             steps {
-                withSonarQubeEnv('sonar')
+                withSonarQubeEnv('sonar') {
                 sh "mnv -f SampleWebApp/pom.xml sonar:sonar"
         }
+            }
             }
         stage('Build with maven') {
             steps {
