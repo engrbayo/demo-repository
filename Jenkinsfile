@@ -7,6 +7,12 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/engrbayo/demo-repository.git']]])
             }
         }
+        stage('scan with sonar') {
+            steps {
+                withSonarQubeEnv('sonar')
+                sh "mnv -f SampleWebApp/pom.xml sonar:sonar"
+        }
+            }
         stage('Build with maven') {
             steps {
                 sh 'cd SampleWebApp && mvn clean install'
