@@ -21,8 +21,8 @@ pipeline {
         }
         stage('scan with sonar') {
             steps {
-                withSonarQubeEnv('sonar') {
-                sh "mvn -f SampleWebApp/pom.xml sonar:sonar"
+                withSonarQubeEnv('SonarQube') {
+                sh "${mvnHome}/bin/mvn -f SampleWebApp/pom.xml sonar:sonar"
         }
             }
                  }
